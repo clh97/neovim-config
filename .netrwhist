@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/home/michel/Development/projects/horas/hourly-vue'
-let g:netrw_dirhist_4='/home/michel/Development/projects/horas/hourly-vue/src'
-let g:netrw_dirhist_3='/home/michel/Development/projects/horas/hourly-vue'
-let g:netrw_dirhist_2='/home/michel/Development/projects/horas/hourly-vue/src'
-let g:netrw_dirhist_1='/home/michel/Development/projects/horas/hourly-vue'
