@@ -1,4 +1,3 @@
-# My personal Neovim configuration
+# Description
 
-Based on following video by Thales Mello (pagar.me):
-https://www.youtube.com/watch?v=kZDT10nFiTY
+This is my personal neovim configuration :)
