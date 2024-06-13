@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ 'neovim/nvim-lspconfig' },
 	{ 'tpope/vim-sensible' },
-	{ 'morhetz/gruvbox' },
+	--{ 'morhetz/gruvbox' },
 	{ 'scrooloose/nerdtree' },
 	--{ 'junegunn/fzf', run = 'fzf#install()' },
 	--{ 'junegunn/fzf.vim' },
@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
 	callback = function()
 		require('go.format').goimports()
-		end,
+	end,
 	group = format_sync_grp,
 })
 
@@ -69,13 +69,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 --	 auto_session_suppress_dirs = nil
 -- })
 
+-- On init, open NERDTree on $HOME/work/ if it exists
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	callback = function()
+		local workdir = vim.fn.expand("$HOME/work/")
+		if vim.fn.isdirectory(workdir) == 1 then
+			vim.cmd("NERDTree " .. workdir)
+		end
+	end,
+})
+
 require('gitsigns').setup()
 
 vim.opt.scrolloff = 10
 
 -- NERDTree settings
-vim.g.NERDTreeShowHidden = 1
-vim.g.NERDTreeMinimalUI = 1
+vim.g.NERDTreeShowHidden = 0
 vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeChDirMode = 2
 
@@ -117,7 +127,7 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Appearance and behavior
-vim.cmd('colorscheme gruvbox')
+--vim.cmd('colorscheme gruvbox')
 vim.o.background = 'dark'
 vim.cmd('syntax enable')
 vim.o.hidden = true
